@@ -4,6 +4,12 @@ Small wrapper for Notification API, that gives you fallback to simple html and c
 
 ## Usage
 
+Include script 
+```javascript
+    <script src='notification.js'></script>
+```
+and that use it as a regular notification
+
 ```javascript
 	// Use it as a regular Notification
 	var n = new Notification('New Message');
