@@ -8,7 +8,7 @@ Include script
 ```javascript
     <script src='notification.js'></script>
 ```
-and that use it as a regular notification
+and then use it as a regular notification
 
 ```javascript
 	// Use it as a regular Notification
