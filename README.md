@@ -4,7 +4,7 @@ Small wrapper for Notification API, that give you fallback to simple html and cs
 
 ## Usage
 
-```
+```javascript
 	// Use it as a regular Notification
 	var n = new Notification('New Message');
 ```
@@ -15,7 +15,7 @@ If it not your will get cool css notification, like this.
 
 Also you get some special functionality, for example, you can specify time when notification will be presented
 
-```
+```javascript
 	var n = new Notification('Holla!', {
 		enterAfter: 1000  // time is seconds
 	});
