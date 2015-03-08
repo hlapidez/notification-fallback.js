@@ -5,8 +5,8 @@ Small wrapper for Notification API, that gives you fallback to simple html and c
 ## Usage
 
 Include script 
-```javascript
-    <script src='notification.js'></script>
+```HTML
+    <script src="notification.js"></script>
 ```
 and then use it as a regular notification
 
@@ -15,13 +15,13 @@ and then use it as a regular notification
 	var n = new Notification('New Message');
 ```
 
-If ```window.Notification``` is presented , it will give you standart notification.
+If `window.Notification` is presented, it will give you standard notification.
 
 If it not your will get cool css notification, like this.
 
 <img src='http://i60.tinypic.com/2vju7tz.png' width='200' height='60'>
 
-Also you have some special functionality, for example, you can specify time when notification will be presented
+Also you have some special functionality, for example, you can specify time when notification will be presented:
 
 ```javascript
 	var n = new Notification('Holla!', {
