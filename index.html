@@ -9,7 +9,11 @@
 	<script src='notification.js'></script>
 	<script>
 		console.log(window.Notification);
-		var n = new Notification('New Message');
+		var n = new Notification2('Little message', {
+			icon: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQjOVjKUCCNhPpASfM1O-b4pkxYnb84azxjNNRi5FjasQajxK1W',
+			enterAfter: 3000
+		});
+		console.log(n.title);
 	</script>
 </body>
 </html>
