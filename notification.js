@@ -2,7 +2,7 @@
 	'use strict';
 	var doc = global.document;
 
-	if ((global.Notification || global.notify)) {
+	if (!(global.Notification || global.notify)) {
 		var s = doc.createElement('style'),
 			standart = {
 				enterAfter : 0,
@@ -60,7 +60,7 @@
 				doc.body.appendChild(notify);
 			};
 
-		global.Notification2 = function (title, options) {
+		global.Notification = function (title, options) {
 			this.title = (title || 'New Message');
 			this.options = options || standart;
 
@@ -73,13 +73,13 @@
 			}.bind(this), this.options.enterAfter);
 		};
 
-		global.Notification2.prototype.leaveAfter = function (time) {
+		global.Notification.prototype.leaveAfter = function (time) {
 			setTimeout(this.close, time);
 		};
 
-		global.Notification2.prototype.close = deleteNotification;
+		global.Notification.prototype.close = deleteNotification;
 
-		global.notify = global.Notification2;
+		global.notify = global.Notification;
 
 	} else {
 		global.notify = global.Notification;
