@@ -30,3 +30,7 @@ Also you have some special functionality, for example, you can specify time when
 ```
 
 License: MIT
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/drKraken/notification-fallback.js/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
