@@ -24,7 +24,7 @@ If `window.Notification` is presented, it will give you standard notification.
 
 If it not your will get cool css notification, like this.
 
-<img src='http://i62.tinypic.com/2e3tshz.jpg' width='200' height='60'>
+<img src='http://i62.tinypic.com/2e3tshz.jpg' width='200' height='55'>
 
 Also you have some special functionality, for example, you can specify time when notification will be presented:
 
