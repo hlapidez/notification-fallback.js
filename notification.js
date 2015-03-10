@@ -1,14 +1,17 @@
 (function (global) {
 	'use strict';
-	var doc = global.document;
 
-	if (!(global.Notification || global.notify)) {
+	var doc = global.document,
+		commonJS = (typeof module !== 'undefined' && module.exports);
+
+	if (!(global.Notification)) {
 		var s = doc.createElement('style'),
 			standart = {
 				enterAfter : 0,
 				dir : 'auto',
 				tag : 'message'
 			},
+
 			deleteNotification = function () {
 				var note = doc.querySelector('.__notify');
 				note.parentNode.removeChild(note);
@@ -58,30 +61,34 @@
 				}
 				notify.appendChild(imageBox);
 				doc.body.appendChild(notify);
+			},
+
+			Notification = function (title, options) {
+				this.title = (title || 'New Message');
+				this.options = options || standart;
+
+				if (!doc.querySelector('[data-notify="notification"]')) {
+					loadStyling();
+				}
+
+				setTimeout(function () {
+					createNotificator(this.title, this.options);
+				}.bind(this), this.options.enterAfter);
 			};
 
-		global.Notification = function (title, options) {
-			this.title = (title || 'New Message');
-			this.options = options || standart;
-
-			if (!doc.querySelector('[data-notify="notification"]')) {
-				loadStyling();
-			}
-
-			setTimeout(function () {
-				createNotificator(this.title, this.options);
-			}.bind(this), this.options.enterAfter);
+		Notification.prototype = {
+			leaveAfter : function (time) {
+				setTimeout(this.close, time);
+			},
+			close: deleteNotification
 		};
 
-		global.Notification.prototype.leaveAfter = function (time) {
-			setTimeout(this.close, time);
-		};
-
-		global.Notification.prototype.close = deleteNotification;
-
-		global.notify = global.Notification;
-
-	} else {
-		global.notify = global.Notification;
+		if (commonJS) {
+			module.exports = Notification;
+		} else {
+			window.Notification = Notification;
+		}
+		
 	}
+
 })(window);

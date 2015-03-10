@@ -17,7 +17,7 @@ gulp.task('js', function () {
 gulp.task('compress', function () {
 	return gulp.src('notification.js')
 		.pipe(uglify())
-		.pipe(gulp.dest('dist'));
+		.pipe(gulp.dest('dist/'));
 });
 
 //init browser sync via live reloads
