@@ -19,10 +19,10 @@
 
 			loadStyling = function () {
 				s.setAttribute('data-notify', 'notification');
-				s.innerHTML = '.__notify {overflow: hidden; clear: both; border-radius: 3px; width: 240px; z-index: 9999; font-size: 0.9em; padding: 0; background: rgb(27, 32, 50); color: #fff; font-family: sans-serif; box-shadow: 0 4px 7px rgba(0, 0, 0, .4); position: fixed; bottom: 10px; right: 15px; text-align:center}';
+				s.innerHTML = '.__notify {overflow: hidden; clear: both; border-radius: 3px; width: 240px; z-index: 9999; font-size: 0.9em; padding: 0; background: #fff; color: #686d7c; font-family: sans-serif; box-shadow: 0 4px 7px rgba(0, 0, 0, .4); position: fixed; bottom: 10px; right: 15px; text-align:center}';
 				s.innerHTML += ' .__notify .__close-btn { width: 8%; float: right; text-decoration: none; color: #686d7c; position: relative;}';
 				s.innerHTML += ' .__notify .__message {float: right; width: 65%; padding: 20px 0; overflow: hidden; white-space: normal; word-wrap: break-word;} .__notify .__close-btn:hover { color: #e04c35;}';
-				s.innerHTML += ' .__notify .__image-box {float:left; width: 60px; height: 60px; background: #2d3449;}';
+				s.innerHTML += ' .__notify .__image-box {float:left; width: 60px; height: 60px; background: #f4f4f4;}';
 				s.innerHTML += ' .__notify .__image-box .__image {float:left; width: 60px; height: 60px;}';
 				doc.getElementsByTagName('head')[0].appendChild(s);
 			},
