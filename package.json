@@ -1,15 +1,24 @@
 {
   "name": "notification-fallback",
   "version": "1.0.0",
-  "description": "",
-  "main": "gulpfile.js",
+  "description": "Simple wrapper for Notification API",
+  "main": "notification.js",
   "directories": {
-    "test": "test"
+    "dist": "dist"
   },
+  "repository": "https://github.com/drKraken/notification-fallback.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": {
+    "name": "Oleh Kuchuk",
+    "email": "kuchuklehjs@gmail.com",
+    "url": "http://github.com/drkraken"
+  },
+  "keywords": [
+    "notification",
+    "fallback"
+  ],
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.2.2",
