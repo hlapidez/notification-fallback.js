@@ -29,7 +29,7 @@ If it not your will get cool css notification, like this.
 Also you have some special functionality, for example, you can specify time when notification will be presented:
 
 ```javascript
-	// notification will be presented agter 1000 ms
+	// notification will be presented after 1000 ms
 	var n = new Notification('Holla!', {
 		enterAfter: 1000  // time is ms
 	}); 
