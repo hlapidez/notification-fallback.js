@@ -5,6 +5,7 @@ var jshint = require('gulp-jshint');
 var browserSync = require('browser-sync');
 var stylish = require('jshint-stylish');
 var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
 
 
 // hinting and linting js files
@@ -15,16 +16,19 @@ gulp.task('js', function () {
 });
 
 gulp.task('compress', function () {
-	return gulp.src('notification.js')
+	return gulp.src('dist/notification.js')
 		.pipe(uglify())
+		.pipe(rename({
+			extname: '.min.js'
+		}))
 		.pipe(gulp.dest('dist/'));
 });
 
-//init browser sync via live reloads
+// init browser sync via live reloads
 gulp.task('browser', function () {
     browserSync.init(['*.html', '*.js'], {
         server: {
-            baseDir: './'
+            baseDir: ['./test/', './dist/']
         }
     });
 });
