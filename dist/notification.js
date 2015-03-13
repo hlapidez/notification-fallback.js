@@ -1,1 +1,94 @@
-!function(e){"use strict";var t=e.document,i="undefined"!=typeof module&&module.exports;if(!e.Notification){var n=t.createElement("style"),o={enterAfter:0,dir:"auto",tag:"message"},a=function(){var e=t.querySelector(".__notify");e.parentNode.removeChild(e)},r=function(){n.setAttribute("data-notify","notification"),n.innerHTML=".__notify {overflow: hidden; clear: both; border-radius: 3px; width: 240px; z-index: 9999; font-size: 0.9em; padding: 0; background: #fff; color: #686d7c; font-family: sans-serif; box-shadow: 0 4px 7px rgba(0, 0, 0, .4); position: fixed; bottom: 10px; right: 15px; text-align:center}",n.innerHTML+=" .__notify .__close-btn { width: 8%; float: right; text-decoration: none; color: #686d7c; position: relative;}",n.innerHTML+=" .__notify .__message {float: right; width: 65%; padding: 20px 0; overflow: hidden; white-space: normal; word-wrap: break-word;} .__notify .__close-btn:hover { color: #e04c35;}",n.innerHTML+=" .__notify .__image-box {float:left; width: 60px; height: 60px; background: #f4f4f4;}",n.innerHTML+=" .__notify .__image-box .__image {float:left; width: 60px; height: 60px;}",t.getElementsByTagName("head")[0].appendChild(n)},d=function(e,t,i){"function"==typeof addEventListener?e.addEventListener(t,i,!1):"function"==typeof attachEvent?e.attachEvent(t,i):e.onlick=i},s=function(e,i){var n=t.createElement("div"),o=t.createElement("a"),r=t.createElement("div"),s=t.createElement("img"),c=t.createElement("div");o.className="__close-btn",o.setAttribute("href","#none"),o.innerHTML="&#10006;",c.className="__image-box",d(o,"click",a),n.className="__notify",r.className="__message",r.innerHTML=e,n.appendChild(o),n.appendChild(r),void 0!==i.icon&&(s.className="__image",s.src=i.icon,s.setAttribute("alt",e),c.appendChild(s)),n.appendChild(c),t.body.appendChild(n)},c=function(e,i){this.title=e||"New Message",this.options=i||o,t.querySelector('[data-notify="notification"]')||r(),setTimeout(function(){s(this.title,this.options)}.bind(this),this.options.enterAfter)};c.prototype={leaveAfter:function(e){setTimeout(this.close,e)},close:a},i?module.exports=c:window.Notification=c}}(window);
+(function (global) {
+	'use strict';
+
+	var doc = global.document,
+		commonJS = (typeof module !== 'undefined' && module.exports);
+
+	if (!(global.Notification)) {
+		var s = doc.createElement('style'),
+			standart = {
+				enterAfter : 0,
+				dir : 'auto',
+				tag : 'message'
+			},
+
+			deleteNotification = function () {
+				var note = doc.querySelector('.__notify');
+				note.parentNode.removeChild(note);
+			},
+
+			loadStyling = function () {
+				s.setAttribute('data-notify', 'notification');
+				s.innerHTML = '.__notify {overflow: hidden; clear: both; border-radius: 3px; width: 240px; z-index: 9999; font-size: 0.9em; padding: 0; background: #fff; color: #686d7c; font-family: sans-serif; box-shadow: 0 4px 7px rgba(0, 0, 0, .4); position: fixed; bottom: 10px; right: 15px; text-align:center}';
+				s.innerHTML += ' .__notify .__close-btn { width: 8%; float: right; text-decoration: none; color: #686d7c; position: relative;}';
+				s.innerHTML += ' .__notify .__message {float: right; width: 65%; padding: 20px 0; overflow: hidden; white-space: normal; word-wrap: break-word;} .__notify .__close-btn:hover { color: #e04c35;}';
+				s.innerHTML += ' .__notify .__image-box {float:left; width: 60px; height: 60px; background: #f4f4f4;}';
+				s.innerHTML += ' .__notify .__image-box .__image {float:left; width: 60px; height: 60px;}';
+				doc.getElementsByTagName('head')[0].appendChild(s);
+			},
+
+			addEvent = function (element, evt, handler) {
+				if (typeof addEventListener === 'function') {
+					element.addEventListener(evt, handler, false);
+				} else if (typeof attachEvent === 'function') {
+					element.attachEvent(evt, handler);
+				} else {
+					element.onlick = handler;
+				}
+			},
+
+			createNotificator = function (message, options) {
+				var notify = doc.createElement('div'),
+					close  = doc.createElement('a'),
+					msg    = doc.createElement('div'),
+					img    = doc.createElement('img'),
+					imageBox    = doc.createElement('div');
+				close.className = '__close-btn';
+				close.setAttribute('href', '#none');
+				close.innerHTML = '&#10006;';
+				imageBox.className = '__image-box';
+				addEvent(close, 'click', deleteNotification);
+				notify.className = '__notify';
+				msg.className = '__message';
+				msg.innerHTML = message;
+				notify.appendChild(close);
+				notify.appendChild(msg);
+				if (options.icon !== undefined) {
+					img.className = '__image';
+					img.src = options.icon;
+					img.setAttribute('alt', message);
+					imageBox.appendChild(img);
+				}
+				notify.appendChild(imageBox);
+				doc.body.appendChild(notify);
+			},
+
+			Notification = function (title, options) {
+				this.title = (title || 'New Message');
+				this.options = options || standart;
+
+				if (!doc.querySelector('[data-notify="notification"]')) {
+					loadStyling();
+				}
+
+				setTimeout(function () {
+					createNotificator(this.title, this.options);
+				}.bind(this), this.options.enterAfter);
+			};
+
+		Notification.prototype = {
+			leaveAfter : function (time) {
+				setTimeout(this.close, time);
+			},
+			close: deleteNotification
+		};
+
+		if (commonJS) {
+			module.exports = Notification;
+		} else {
+			window.Notification = Notification;
+		}
+		
+	}
+
+})(window);
