@@ -37,7 +37,7 @@ Also you have some special functionality, for example, you can specify time when
 	// hide notification after 2000 ms
 	n.leaveAfter(2000);
 ```
-with love by [@drkraken](http://github/drkraken)
+with love by [@drkraken](https://github.com/drKraken)
 License: MIT
 
 
