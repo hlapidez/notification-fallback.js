@@ -2,6 +2,12 @@
 
 Small wrapper for Notification API, that gives you fallback to simple html and css notification.
 
+## Install with Bower
+
+```JavaScript
+	bower install notification-fallback.js
+```
+
 ## Usage
 
 Include script 
