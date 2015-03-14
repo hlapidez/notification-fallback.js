@@ -12,7 +12,7 @@
   ],
   "license": "MIT",
   "ignore": [
-    "**/*"
+    "**/*",
     "!dist/notification.js"
   ]
 }
