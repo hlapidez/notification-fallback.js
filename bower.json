@@ -12,12 +12,7 @@
   ],
   "license": "MIT",
   "ignore": [
-    "**/.*",
-    "!dist/notification.js",
-    "node_modules",
-    "bower_components",
-    "app/bower_components",
-    "test",
-    "tests"
+    "**/*"
+    "!dist/notification.js"
   ]
 }
