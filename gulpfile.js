@@ -28,7 +28,7 @@ gulp.task('compress', function () {
 gulp.task('browser', function () {
     browserSync.init(['*.html', '*.js'], {
         server: {
-            baseDir: ['./test/', './dist/']
+            baseDir: ['./']
         }
     });
 });

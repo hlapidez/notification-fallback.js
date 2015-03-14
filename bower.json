@@ -1,0 +1,23 @@
+{
+  "name": "notification-fallback",
+  "version": "1.0.0",
+  "homepage": "https://github.com/drKraken/notification-fallback.js",
+  "authors": [
+    "drKraken <kuchuklehjs@gmail.com>"
+  ],
+  "description": "Simple fallback for window.Notification",
+  "main": "dist/notification.js",
+  "keywords": [
+    "notification"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "!dist/notification.js"
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ]
+}
