@@ -10,7 +10,7 @@ Small wrapper for Notification API, that gives you fallback to simple html and c
 
 ## Usage
 
-Include script 
+Include script
 ```HTML
     <script src="notification.js"></script>
 ```
@@ -38,10 +38,10 @@ Also you have some special functionality, for example, you can specify time when
 	// notification will be presented after 1000 ms
 	var n = new Notification('Holla!', {
 		enterAfter: 1000  // time is ms
-	}); 
-	
-	// hide notification after 2000 ms
-	n.leaveAfter(2000);
+	});
+
+	// hide notification after 2000ms
+	n.leaveAfter(2000, n);
 ```
 with love by [@drkraken](https://github.com/drKraken)
 License: MIT

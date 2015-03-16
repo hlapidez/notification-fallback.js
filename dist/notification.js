@@ -1,10 +1,12 @@
 (function (global) {
 	'use strict';
 
+	// caching global variables in local scope
 	var
 		doc = global.document,
 		commonJS = (typeof module !== 'undefined' && module.exports);
 
+	// view if standart API presented
 	if (!(global.Notification)) {
 		var
 			s = doc.createElement('style'),
@@ -17,6 +19,7 @@
 				note.parentNode.removeChild(note);
 			},
 
+			// create CSS styling node for notification
 			loadStyling = function () {
 				s.setAttribute('data-notify', 'notification');
 				s.innerHTML = '.__notify {overflow: hidden; clear: both; border-radius: 3px; width: 240px; z-index: 9999; font-size: 0.9em; padding: 0; background: #fff; color: #686d7c; font-family: sans-serif; box-shadow: 0 4px 7px rgba(0, 0, 0, .4); position: fixed; bottom: 10px; right: 15px; text-align:center}';
@@ -26,7 +29,7 @@
 				s.innerHTML += ' .__notify .__image-box .__image {float:left; width: 60px; height: 60px;}';
 				doc.getElementsByTagName('head')[0].appendChild(s);
 			},
-
+			// event helper
 			addEvent = function (element, evt, handler) {
 				if (typeof addEventListener === 'function') {
 					element.addEventListener(evt, handler, false);
@@ -37,6 +40,7 @@
 				}
 			},
 
+			// creating notification node
 			createNotificator = function (message, options) {
 				var notify = doc.createElement('div'),
 					close  = doc.createElement('a'),
@@ -90,10 +94,12 @@
 		}
 
 	} else {
+		// caching global
 		var
 			n     = global.Notification,
 			proto = n.prototype;
 
+		// adding leaveAfter functionality for standart Notification
 		proto.leaveAfter = function (time, context) {
 			setTimeout(context.__proto__.close.bind(context), time);
 		};
