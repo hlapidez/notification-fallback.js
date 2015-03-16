@@ -1,15 +1,15 @@
 (function (global) {
 	'use strict';
 
-	var doc = global.document,
+	var
+		doc = global.document,
 		commonJS = (typeof module !== 'undefined' && module.exports);
 
 	if (!(global.Notification)) {
-		var s = doc.createElement('style'),
+		var
+			s = doc.createElement('style'),
 			standart = {
-				enterAfter : 0,
-				dir : 'auto',
-				tag : 'message'
+				enterAfter : 0
 			},
 
 			deleteNotification = function () {
@@ -65,7 +65,7 @@
 
 			Notification = function (title, options) {
 				this.title = (title || 'New Message');
-				this.options = options || standart;
+				this.options = (options || standart);
 
 				if (!doc.querySelector('[data-notify="notification"]')) {
 					loadStyling();
@@ -77,7 +77,7 @@
 			};
 
 		Notification.prototype = {
-			leaveAfter : function (time) {
+			leaveAfter : function (time, context) {
 				setTimeout(this.close, time);
 			},
 			close: deleteNotification
@@ -88,7 +88,16 @@
 		} else {
 			window.Notification = Notification;
 		}
-		
+
+	} else {
+		var
+			n     = global.Notification,
+			proto = n.prototype;
+
+		proto.leaveAfter = function (time, context) {
+			setTimeout(context.__proto__.close.bind(context), time);
+		};
+
 	}
 
 })(window);

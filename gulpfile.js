@@ -26,7 +26,7 @@ gulp.task('compress', function () {
 
 // init browser sync via live reloads
 gulp.task('browser', function () {
-    browserSync.init(['*.html', '*.js'], {
+    browserSync.init(['*.html', 'dist/*.js'], {
         server: {
             baseDir: ['./']
         }
@@ -35,7 +35,7 @@ gulp.task('browser', function () {
 
 // watch file changes
 gulp.task('watch', function () {
-    gulp.watch('*.js', ['js']);
+    gulp.watch('dist/*.js', ['js']);
 });
 
 
