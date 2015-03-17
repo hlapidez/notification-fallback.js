@@ -1,4 +1,4 @@
-(function (global) {
+;(function (global) {
 	'use strict';
 
 	// caching global variables in local scope
