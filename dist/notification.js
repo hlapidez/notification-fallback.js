@@ -34,9 +34,9 @@
 				if (typeof addEventListener === 'function') {
 					element.addEventListener(evt, handler, false);
 				} else if (typeof attachEvent === 'function') {
-					element.attachEvent(evt, handler);
+					element.attachEvent('on' + evt, handler);
 				} else {
-					element.onlick = handler;
+					element['on' + evt] = handler;
 				}
 			},
 
