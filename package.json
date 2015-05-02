@@ -7,17 +7,20 @@
     "dist": "dist"
   },
   "repository": "https://github.com/drKraken/notification-fallback.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": {
     "name": "Oleh Kuchuk",
     "email": "kuchuklehjs@gmail.com",
     "url": "http://github.com/drkraken"
   },
+  "main" : "dist/notification.js",
+  "files": [
+      "dist/notification.js"
+  ],
   "keywords": [
     "notification",
-    "fallback"
+    "fallback",
+    "browser",
+    "api"
   ],
   "license": "MIT",
   "devDependencies": {

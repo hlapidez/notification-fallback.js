@@ -104,6 +104,7 @@
 			setTimeout(context.__proto__.close.bind(context), time);
 		};
 
+		if (commonJS) { module.exports = Notification; }
 	}
 
 })(window);
