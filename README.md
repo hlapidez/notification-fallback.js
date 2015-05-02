@@ -8,6 +8,12 @@ Small wrapper for Notification API, that gives you fallback to simple html and c
 	bower install notification-fallback.js
 ```
 
+## Install with NPM
+
+```JavaScript
+	npm install --save notification-fallback
+```
+
 ## Usage
 
 Include script
